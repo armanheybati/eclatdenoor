@@ -7,6 +7,8 @@ Dieses Dokument hält fest, welche Zugänge für das Vercel-Webseitenprojekt sin
 - GitHub-Repository ist lokal geklont.
 - SSH Deploy Key wurde erzeugt und im Repo als Deploy Key hinterlegt.
 - Lokales Git-Remote nutzt SSH: `git@github.com:armanheybati/eclatdenoor.git`.
+- Vercel Deploy Hook wurde lokal in `.env.local` gespeichert, aber nicht committed.
+- Neon Postgres-Zugangsdaten wurden lokal in `.env.local` gespeichert, aber nicht committed.
 
 ## Vercel-Zugriff: empfohlene Optionen
 
@@ -82,8 +84,27 @@ Typische Werte bei Vercel:
 
 Bitte vor Umsetzung in Vercel prüfen, weil Vercel die exakten DNS-Hinweise pro Domain anzeigt.
 
+## Environment Variables
+
+Für lokale Entwicklung gibt es eine Vorlage in `.env.example`.
+
+Für Vercel sollten die echten Werte direkt in Vercel unter **Project Settings → Environment Variables** eingetragen werden. Für Next.js/Neon sind insbesondere relevant:
+
+- `DATABASE_URL`
+- `DATABASE_URL_UNPOOLED`
+- `POSTGRES_PRISMA_URL`
+- `POSTGRES_URL`
+- `POSTGRES_URL_NON_POOLING`
+- `POSTGRES_USER`
+- `POSTGRES_HOST`
+- `POSTGRES_PASSWORD`
+- `POSTGRES_DATABASE`
+
+Je nach späterem ORM/DB-Client reichen wahrscheinlich weniger Variablen; bis zur Stack-Entscheidung ist die breitere Neon/Vercel-kompatible Vorlage sinnvoll.
+
 ## Sicherheit
 
 - `.env`, `.env.*`, `.vercel/`, Keys und Zertifikate sind per `.gitignore` ausgeschlossen.
 - Secrets werden nicht in Markdown-Dateien dokumentiert.
 - Wenn ein Secret versehentlich im Repo landet, muss es als kompromittiert gelten und rotiert werden.
+- Da Secrets über Chat geteilt wurden, sollten sie rotiert werden, falls dieser Kanal oder Verlauf nicht als dauerhaft vertraulich gelten soll.
