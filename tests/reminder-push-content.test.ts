@@ -3,9 +3,10 @@ import { reminderPushExample } from "../lib/medaesthetic-content";
 
 describe("reminderPushExample", () => {
   it("contains a graphical push notification example for an example patient", () => {
-    expect(reminderPushExample.patientName).toBe("Mina Beispiel");
+    expect(reminderPushExample.patientName).toBe("Ayda Beispiel");
     expect(reminderPushExample.channel).toBe("Push-Up Nachricht");
     expect(reminderPushExample.title).toContain("Reminder");
+    expect(reminderPushExample.message).toContain("Ayda");
     expect(reminderPushExample.message).toContain("Botox");
     expect(reminderPushExample.message).toContain("Auffrischung");
   });

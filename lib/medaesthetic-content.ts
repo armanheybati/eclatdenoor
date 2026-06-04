@@ -137,12 +137,12 @@ export const beforeAfterComparisons = [
 ] as const;
 
 export const reminderPushExample = {
-  patientName: "Mina Beispiel",
+  patientName: "Ayda Beispiel",
   treatment: "Botox",
   channel: "Push-Up Nachricht",
   title: "Reminder: Zeit für deine Botox-Auffrischung",
   message:
-    "Hallo Mina, deine letzte Botox-Behandlung liegt bald 4–6 Monate zurück. Vereinbare jetzt bequem deinen Auffrischungstermin bei Éclat de Noor.",
+    "Hallo Ayda, deine letzte Botox-Behandlung liegt bald 4–6 Monate zurück. Vereinbare jetzt bequem deinen Auffrischungstermin bei Éclat de Noor.",
   timing: "4–6 Monate nach Botox-Behandlung",
   actionLabel: "Termin vereinbaren",
   deviceTime: "09:41",
