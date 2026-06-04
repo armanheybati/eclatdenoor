@@ -14,8 +14,10 @@ import {
   UsersRound,
 } from "lucide-react";
 import { BeforeAfterSlider } from "@/components/before-after-slider";
+import { CookieConsentBanner } from "@/components/cookie-consent-banner";
+import { PlausibleAnalytics } from "@/components/plausible-analytics";
+import { WaitlistForm } from "@/components/waitlist-form";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   appRoles,
@@ -28,6 +30,18 @@ import {
   treatmentJourney,
 } from "@/lib/medaesthetic-content";
 import { topMenuItems } from "@/lib/top-menu";
+import {
+  contactDetails,
+  faqs,
+  footerLinks,
+  legalLinks,
+  pricingNotice,
+  roadmapItems,
+  socialProof,
+  softwareApplicationSchema,
+  teamSection,
+  waitlistConfig,
+} from "@/lib/site-compliance-content";
 
 const pillarIcons = [ClipboardSignature, Camera, BellRing, CalendarCheck] as const;
 const moduleIcons = [UsersRound, Camera, FileText, BellRing, CalendarCheck] as const;
@@ -46,7 +60,10 @@ export default function Home() {
               <span className="hidden text-xs text-[#725746] sm:block">MedAesthetic Manager</span>
             </div>
           </a>
-          <details className="group relative ml-auto">
+          <a className="ml-auto hidden rounded-full bg-[#3b261d] px-4 py-2 text-sm font-semibold text-[#ead6c1] shadow-border transition hover:bg-[#744532] sm:inline-flex" href="#waitlist">
+            {waitlistConfig.primaryCta}
+          </a>
+          <details className="group relative ml-3">
             <summary className="flex h-10 cursor-pointer list-none items-center gap-2 rounded-full bg-[#ead8c4] px-4 text-sm font-medium text-[#3b261d] shadow-border transition hover:bg-[#ddc7ad] [&::-webkit-details-marker]:hidden">
               <Menu className="h-4 w-4" />
               Menü
@@ -83,12 +100,9 @@ export default function Home() {
               MedAesthetic Manager bildet Botox-, Hyaluron- und Filler-Abläufe in einer schlanken Praxis- und Patienten-App ab: Fotodokumentation, digitale Aufklärung, Recall-Reminder und Termine — getrennt vom normalen Praxisalltag.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Button size="lg">
-                Produktkonzept ansehen <ArrowUpRight className="h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="secondary">
-                Für Pilotpraxen vormerken
-              </Button>
+              <a className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#3b261d] px-6 text-base font-medium text-[#ead6c1] shadow-border transition hover:bg-[#744532]" href="#waitlist">
+                {waitlistConfig.primaryCta} <ArrowUpRight className="h-4 w-4" />
+              </a>
             </div>
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
               {heroMetrics.map((metric) => (
@@ -152,6 +166,45 @@ export default function Home() {
               </Card>
             );
           })}
+        </div>
+      </section>
+
+      <section id="login-aerztinnen" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="mb-8 max-w-3xl">
+          <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Navigation & Coming Soon</p>
+          <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Zugänge und Workflows werden sichtbar vorbereitet.</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          <Card className="bg-[#fbf7f0]/82">
+            <CardHeader>
+              <CardTitle>Login für ÄrztInnen</CardTitle>
+              <CardDescription>Coming Soon: Praxiszugang für Dokumentation, Aufklärung, Termine und Reminder.</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card id="login-patientinnen" className="scroll-mt-24 bg-[#fbf7f0]/82">
+            <CardHeader>
+              <CardTitle>Login für PatientInnen</CardTitle>
+              <CardDescription>Coming Soon: Patientenportal für Formulare, Fotos, Hinweise und Terminaktionen.</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card id="aufklaerungsboegen" className="scroll-mt-24 bg-[#fbf7f0]/82">
+            <CardHeader>
+              <CardTitle>Aufklärungsbögen</CardTitle>
+              <CardDescription>Digitale Bögen mit Versionsstand, Signaturstatus und DSGVO-Hinweisen.</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card id="allgemeine-hinweise" className="scroll-mt-24 bg-[#fbf7f0]/82">
+            <CardHeader>
+              <CardTitle>Allgemeine Hinweise</CardTitle>
+              <CardDescription>Nachsorge-Hinweise nach Therapie als strukturierter PatientInnen-Flow.</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card id="terminvereinbarung" className="scroll-mt-24 bg-[#fbf7f0]/82">
+            <CardHeader>
+              <CardTitle>Terminvereinbarung</CardTitle>
+              <CardDescription>Coming Soon: Termin-CTA und Kalenderintegration; aktuell über Waitlist/Kontakt.</CardDescription>
+            </CardHeader>
+          </Card>
         </div>
       </section>
 
@@ -226,6 +279,99 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="waitlist" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Conversion & Lead-Erfassung</p>
+            <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">{waitlistConfig.primaryCta} und Pilotzugang sichern.</h2>
+            <p className="mt-5 text-base leading-7 text-[#6f5a4d]">
+              Trage deine Praxis-E-Mail ein. Die Bestätigungsmail wird im Produktflow vorbereitet; ein echter Versand benötigt später einen angebundenen E-Mail-Anbieter.
+            </p>
+            <p className="mt-4 text-sm font-semibold text-[#744532]">Kontakt: <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a></p>
+          </div>
+          <WaitlistForm />
+        </div>
+      </section>
+
+      <section id="rechtliches" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="mb-8 max-w-3xl">
+          <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Rechtliches (Pflicht)</p>
+          <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Pflichtseiten, AVV und Consent sichtbar verlinkt.</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {legalLinks.map((link) => (
+            <a className="rounded-3xl bg-[#fbf7f0]/86 p-6 shadow-border transition hover:-translate-y-0.5 hover:bg-[#f1e4d4]" href={link.href} key={link.href}>
+              <p className="font-editorial text-2xl font-medium tracking-[-0.96px]">{link.label}</p>
+              <p className="mt-3 text-sm leading-6 text-[#725746]">Erstellt und verlinkt für Footer, Navigation und Compliance-Prüfung.</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="vertrauen" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="grid gap-5 lg:grid-cols-3">
+          <Card className="bg-[#3b261d] text-white lg:col-span-1">
+            <CardHeader>
+              <CardTitle className="text-white">{teamSection.title}</CardTitle>
+              <CardDescription className="text-white/70">{teamSection.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              {teamSection.bullets.map((bullet) => <p className="rounded-2xl bg-[#ead6c1]/8 p-3 text-sm text-white/82" key={bullet}>{bullet}</p>)}
+            </CardContent>
+          </Card>
+          <Card className="bg-[#fbf7f0]/82 lg:col-span-2">
+            <CardHeader>
+              <CardTitle>{socialProof.headline}</CardTitle>
+              <CardDescription>{socialProof.testimonialPlaceholder}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="rounded-3xl border border-dashed border-[#744532]/35 bg-[#ead8c4]/55 p-6 text-center text-sm font-semibold text-[#744532]">{socialProof.logoPlaceholder}</div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section id="preise" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <Card className="bg-[#fbf7f0]/86">
+          <CardHeader>
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Preismodell</p>
+            <CardTitle>Preise folgen / auf Anfrage</CardTitle>
+            <CardDescription>{pricingNotice}</CardDescription>
+          </CardHeader>
+        </Card>
+      </section>
+
+      <section id="faq" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="mb-8 max-w-3xl">
+          <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">FAQ</p>
+          <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Häufige Fragen für Pilotpraxen.</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {faqs.map((faq) => (
+            <details className="rounded-3xl bg-[#fbf7f0]/86 p-5 shadow-border" key={faq.question}>
+              <summary className="cursor-pointer font-semibold text-[#2a1b14]">{faq.question}</summary>
+              <p className="mt-3 text-sm leading-6 text-[#725746]">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section id="roadmap" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="mb-8 max-w-3xl">
+          <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Roadmap</p>
+          <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Was nach dem MVP kommt.</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {roadmapItems.map((item, index) => (
+            <div className="rounded-3xl bg-[#fbf7f0]/86 p-6 shadow-border" key={item.title}>
+              <p className="font-mono text-xs font-semibold text-[#8a563d]">0{index + 1}</p>
+              <p className="font-editorial mt-4 text-2xl font-medium tracking-[-0.96px]">{item.title}</p>
+              <p className="mt-3 text-sm leading-6 text-[#725746]">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="reminder" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
@@ -289,6 +435,21 @@ export default function Home() {
           </div>
         </Card>
       </section>
+
+      <footer className="border-t border-[#6f4b37]/15 bg-[#3b261d] px-6 py-10 text-[#ead6c1]">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-center">
+          <div>
+            <p className="font-editorial text-2xl font-medium tracking-[-0.96px]">Éclat de Noor</p>
+            <p className="mt-2 text-sm text-[#ead6c1]/70">© {new Date().getFullYear()} Éclat de Noor. Alle Rechte vorbehalten.</p>
+          </div>
+          <nav className="flex flex-wrap gap-4 text-sm font-semibold">
+            {footerLinks.map((link) => <a className="hover:text-white" href={link.href} key={link.href}>{link.label}</a>)}
+          </nav>
+        </div>
+      </footer>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
+      <PlausibleAnalytics />
+      <CookieConsentBanner />
     </main>
   );
 }

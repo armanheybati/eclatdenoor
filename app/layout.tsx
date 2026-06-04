@@ -12,10 +12,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Éclat de Noor | DSGVO-konforme MedAesthetic App";
+const description =
+  "Medical-Beauty-App für Botox, Filler und Hyaluron: Fotodokumentation, digitale Aufklärung, Reminder, Waitlist, DSGVO und Praxis-Workflows.";
+
 export const metadata: Metadata = {
-  title: "Éclat de Noor | MedAesthetic Manager",
-  description:
-    "DSGVO-konforme Praxis- und Patienten-App für Fotodokumentation, digitale Aufklärung, Recall-Reminder und Termine in der ästhetischen Medizin.",
+  metadataBase: new URL("https://eclatdenoor.vercel.app"),
+  title,
+  description,
+  keywords: ["Medical Aesthetics", "Botox App", "Filler Dokumentation", "DSGVO", "Praxissoftware"],
+  openGraph: {
+    title,
+    description,
+    url: "https://eclatdenoor.vercel.app",
+    siteName: "Éclat de Noor",
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

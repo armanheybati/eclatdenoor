@@ -1,0 +1,41 @@
+import { describe, expect, it } from "vitest";
+import {
+  contactDetails,
+  faqs,
+  footerLinks,
+  legalLinks,
+  pricingNotice,
+  roadmapItems,
+  socialProof,
+  softwareApplicationSchema,
+  teamSection,
+} from "../lib/site-compliance-content";
+
+describe("site compliance and conversion content", () => {
+  it("defines required legal links and footer links", () => {
+    expect(legalLinks.map((link) => link.label)).toEqual([
+      "Impressum",
+      "Datenschutzerklärung",
+      "Auftragsverarbeitungsvertrag (AVV)",
+    ]);
+    expect(footerLinks.map((link) => link.label)).toEqual([
+      "Impressum",
+      "Datenschutz",
+      "Kontakt",
+    ]);
+  });
+
+  it("contains conversion contact, pricing, team, social proof, FAQ, and roadmap content", () => {
+    expect(contactDetails.email).toMatch(/@/);
+    expect(pricingNotice).toMatch(/Preise folgen|auf Anfrage/);
+    expect(teamSection.title).toMatch(/Über uns|Team/);
+    expect(socialProof.testimonialPlaceholder).toMatch(/Pilotpraxis|sobald vorhanden/);
+    expect(faqs.length).toBeGreaterThanOrEqual(5);
+    expect(roadmapItems.length).toBeGreaterThanOrEqual(4);
+  });
+
+  it("provides SoftwareApplication schema data", () => {
+    expect(softwareApplicationSchema["@type"]).toBe("SoftwareApplication");
+    expect(softwareApplicationSchema.applicationCategory).toContain("Medical");
+  });
+});
