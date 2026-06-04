@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { topMenuItems } from "../lib/top-menu";
+import { dsgvoRequirements, topMenuItems } from "../lib/top-menu";
 
 describe("topMenuItems", () => {
   it("contains the requested top-right dropdown entries in order", () => {
@@ -9,11 +9,25 @@ describe("topMenuItems", () => {
       "Fotodokumentation",
       "Allgemeine Hinweise zur Beachtung nach Therapie",
       "Terminvereinbarung",
+      "Datenschutz-Grundverordnung (DSGVO)",
     ]);
   });
 
   it("links every dropdown item to an in-page target", () => {
     expect(topMenuItems.every((item) => item.href.startsWith("#"))).toBe(true);
     expect(new Set(topMenuItems.map((item) => item.href)).size).toBe(topMenuItems.length);
+  });
+
+  it("captures the DSGVO requirements for medical and cosmetic-medical data", () => {
+    expect(dsgvoRequirements.map((item) => item.title)).toEqual([
+      "Rechtsgrundlage",
+      "Datenschutzbeauftragter",
+      "Auftragsverarbeitung",
+      "Datenspeicherort",
+      "Löschkonzept",
+      "Betroffenenrechte",
+    ]);
+    expect(dsgvoRequirements.map((item) => item.description).join(" ")).toContain("Art. 9 Abs. 2 lit. a DSGVO");
+    expect(dsgvoRequirements.map((item) => item.description).join(" ")).toContain("Art. 28 DSGVO");
   });
 });
