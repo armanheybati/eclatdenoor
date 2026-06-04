@@ -1,8 +1,13 @@
 export const topMenuItems = [
   {
-    label: "Login",
-    href: "#login",
-    description: "Zugang für Praxis und Patient",
+    label: "Login für ÄrztInnen",
+    href: "#login-aerztinnen",
+    description: "Zugang für PraxisinhaberInnen und behandelnde ÄrztInnen",
+  },
+  {
+    label: "Login für PatientInnen",
+    href: "#login-patientinnen",
+    description: "Zugang zur Patienten-App und zum eigenen Behandlungsverlauf",
   },
   {
     label: "Aufklärungsbögen",
