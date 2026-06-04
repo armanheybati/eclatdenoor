@@ -100,6 +100,42 @@ export const mvpModules = [
   },
 ] as const;
 
+export const beforeAfterComparisons = [
+  {
+    treatment: "Botox",
+    area: "Stirn & Zornesfalte",
+    beforeLabel: "Vorher-Foto Botox",
+    afterLabel: "Nachher-Foto Botox",
+    sliderLabel: "Regler: Botox vorher/nachher vergleichen",
+    description:
+      "Before/After-Fotos werden für Botox direkt vergleichbar: Vorher- und Nachher-Ansicht liegen übereinander und können per Regler sichtbar gemacht werden.",
+    beforeTone: "from-[#d8b28f] via-[#ead8c4] to-[#f5e8d7]",
+    afterTone: "from-[#b98761] via-[#d9b692] to-[#f0ddc7]",
+  },
+  {
+    treatment: "Filler",
+    area: "Wangen & Kontur",
+    beforeLabel: "Vorher-Foto Filler",
+    afterLabel: "Nachher-Foto Filler",
+    sliderLabel: "Regler: Filler vorher/nachher vergleichen",
+    description:
+      "Filler-Verläufe zeigen Volumen und Kontur im direkten Before/After-Vergleich mit einem verschiebbaren Regler.",
+    beforeTone: "from-[#e0c3a9] via-[#f1e4d4] to-[#fbf7f0]",
+    afterTone: "from-[#a96845] via-[#cf9f79] to-[#ead6c1]",
+  },
+  {
+    treatment: "Hyaluron",
+    area: "Lippen & Feuchtigkeit",
+    beforeLabel: "Vorher-Foto Hyaluron",
+    afterLabel: "Nachher-Foto Hyaluron",
+    sliderLabel: "Regler: Hyaluron vorher/nachher vergleichen",
+    description:
+      "Hyaluron-Behandlungen werden mit Vorher- und Nachher-Fotos dokumentiert, sodass PatientInnen den Verlauf spielerisch mit dem Slider nachvollziehen können.",
+    beforeTone: "from-[#dfc0ad] via-[#ead8c4] to-[#fbf7f0]",
+    afterTone: "from-[#9b5f42] via-[#c8906e] to-[#ead6c1]",
+  },
+] as const;
+
 export const compliancePoints = [
   "EU-Hosting & AV-Verträge",
   "Mandantentrennung je Praxis",

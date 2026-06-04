@@ -13,11 +13,13 @@ import {
   Sparkles,
   UsersRound,
 } from "lucide-react";
+import { BeforeAfterSlider } from "@/components/before-after-slider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   appRoles,
+  beforeAfterComparisons,
   compliancePoints,
   heroMetrics,
   mvpModules,
@@ -132,7 +134,7 @@ export default function Home() {
           {topMenuItems.map((item) => (
             <a
               key={item.href}
-              id={item.href === "#dsgvo" ? undefined : item.href.slice(1)}
+              id={["#dsgvo", "#fotodokumentation"].includes(item.href) ? undefined : item.href.slice(1)}
               className="scroll-mt-24 rounded-2xl bg-[#fbf7f0]/82 p-5 shadow-border transition hover:-translate-y-0.5 hover:bg-[#f1e4d4]"
               href={item.href}
             >
@@ -165,6 +167,25 @@ export default function Home() {
               </Card>
             );
           })}
+        </div>
+      </section>
+
+      <section id="fotodokumentation" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+          <div className="max-w-3xl">
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Before/After-Fotos</p>
+            <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">
+              Botox, Filler und Hyaluron mit spielbarem Vorher/Nachher-Regler.
+            </h2>
+          </div>
+          <p className="max-w-md text-base leading-7 text-[#6f5a4d]">
+            Vorher- und Nachher-Fotos liegen direkt übereinander. Die Praxis oder PatientInnen können den Regler bewegen und die Veränderung elegant im direkten Vergleich sehen.
+          </p>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {beforeAfterComparisons.map((comparison) => (
+            <BeforeAfterSlider key={comparison.treatment} comparison={comparison} />
+          ))}
         </div>
       </section>
 
