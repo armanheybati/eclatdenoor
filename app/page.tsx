@@ -234,18 +234,8 @@ export default function Home() {
               Automatische Erinnerung an eine Beispielpatientin — direkt auf dem Smartphone.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#6f5a4d]">
-              Das Reminder-System kann nach der Behandlung automatisch eine freundliche Nachricht senden, zum Beispiel für eine Botox-Auffrischung nach 4–6 Monaten.
+              Das Reminder-System kann nach der Behandlung automatisch eine freundliche Nachricht senden.
             </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl bg-[#fbf7f0]/82 p-4 shadow-border">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8a563d]">Patientin</p>
-                <p className="mt-2 font-editorial text-2xl font-medium tracking-[-0.96px]">{reminderPushExample.patientName}</p>
-              </div>
-              <div className="rounded-2xl bg-[#fbf7f0]/82 p-4 shadow-border">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8a563d]">Timing</p>
-                <p className="mt-2 font-editorial text-2xl font-medium tracking-[-0.96px]">{reminderPushExample.timing}</p>
-              </div>
-            </div>
           </div>
 
           <div className="mx-auto w-full max-w-sm rounded-[3rem] bg-[#2a1b14] p-3 shadow-warm">
@@ -260,8 +250,7 @@ export default function Home() {
                     <BellRing className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8a563d]">{reminderPushExample.channel}</p>
-                    <p className="mt-2 font-semibold tracking-[-0.32px] text-[#2a1b14]">{reminderPushExample.title}</p>
+                    <p className="font-semibold tracking-[-0.32px] text-[#2a1b14]">{reminderPushExample.title}</p>
                     <p className="mt-2 text-sm leading-6 text-[#6f5a4d]">{reminderPushExample.message}</p>
                   </div>
                 </div>
