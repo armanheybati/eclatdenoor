@@ -24,7 +24,7 @@ import {
   productPillars,
   treatmentJourney,
 } from "@/lib/medaesthetic-content";
-import { dsgvoRequirements, topMenuItems } from "@/lib/top-menu";
+import { topMenuItems } from "@/lib/top-menu";
 
 const pillarIcons = [ClipboardSignature, Camera, BellRing, CalendarCheck] as const;
 const moduleIcons = [UsersRound, Camera, FileText, BellRing, CalendarCheck] as const;
@@ -221,31 +221,21 @@ export default function Home() {
       </section>
 
       <section id="dsgvo" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16 pb-24">
-        <Card className="overflow-hidden bg-[#fbf7f0]/88">
-          <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="bg-[#744532] p-8 text-white sm:p-10">
-              <LockKeyhole className="h-9 w-9 text-[#ead6c1]" />
-              <p className="mt-8 font-mono text-xs uppercase text-[#ead6c1]/80">Datenschutz-Grundverordnung (DSGVO)</p>
-              <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2px] text-white">
-                Medizinische und kosmetisch-medizinische Daten fallen unter Art. 9 DSGVO.
-              </h2>
-              <p className="mt-5 text-base leading-7 text-white/72">
-                Sie gelten als besondere Kategorie personenbezogener Daten und erfordern erhöhte Schutzmaßnahmen. Éclat de Noor wird für DACH-Praxen positioniert: EU-Hosting, klare Mandantentrennung, verschlüsselte Dateiablage und keine Nutzung von Patientendaten für KI-Training.
-              </p>
-              <div className="mt-8 space-y-3">
-                {compliancePoints.map((point) => (
-                  <div key={point} className="flex items-start gap-3 rounded-2xl bg-[#ead6c1]/8 p-3 text-sm leading-6 text-white/78 shadow-border">
-                    <HeartPulse className="mt-0.5 h-4 w-4 shrink-0 text-[#ead6c1]" />
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="grid gap-3 p-8 sm:grid-cols-2 sm:p-10">
-              {dsgvoRequirements.map((requirement) => (
-                <div key={requirement.title} className="rounded-2xl bg-[#f1e4d4] p-5 shadow-border">
-                  <p className="font-editorial text-xl font-medium tracking-[-0.72px] text-[#2a1b14]">{requirement.title}</p>
-                  <p className="mt-3 text-sm font-medium leading-6 text-[#4b352b]">{requirement.description}</p>
+        <Card className="overflow-hidden bg-[#744532] text-white">
+          <div className="p-8 sm:p-10 lg:p-12">
+            <LockKeyhole className="h-9 w-9 text-[#ead6c1]" />
+            <p className="mt-8 font-mono text-xs uppercase text-[#ead6c1]/80">Datenschutz-Grundverordnung (DSGVO)</p>
+            <h2 className="font-editorial mt-3 max-w-4xl text-4xl font-medium tracking-[-2px] text-white">
+              Medizinische und kosmetisch-medizinische Daten fallen unter Art. 9 DSGVO.
+            </h2>
+            <p className="mt-5 max-w-4xl text-base leading-7 text-white/72">
+              Sie gelten als besondere Kategorie personenbezogener Daten und erfordern erhöhte Schutzmaßnahmen. Éclat de Noor wird für DACH-Praxen positioniert: EU-Hosting, klare Mandantentrennung, verschlüsselte Dateiablage und keine Nutzung von Patientendaten für KI-Training.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {compliancePoints.map((point) => (
+                <div key={point} className="flex items-start gap-3 rounded-2xl bg-[#ead6c1]/8 p-3 text-sm leading-6 text-white/78 shadow-border">
+                  <HeartPulse className="mt-0.5 h-4 w-4 shrink-0 text-[#ead6c1]" />
+                  <span>{point}</span>
                 </div>
               ))}
             </div>
