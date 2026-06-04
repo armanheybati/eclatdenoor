@@ -8,6 +8,7 @@ import {
   FileText,
   HeartPulse,
   LockKeyhole,
+  Menu,
   ShieldCheck,
   Sparkles,
   UsersRound,
@@ -23,6 +24,7 @@ import {
   productPillars,
   treatmentJourney,
 } from "@/lib/medaesthetic-content";
+import { topMenuItems } from "@/lib/top-menu";
 
 const pillarIcons = [ClipboardSignature, Camera, BellRing, CalendarCheck] as const;
 const moduleIcons = [UsersRound, Camera, FileText, BellRing, CalendarCheck] as const;
@@ -41,13 +43,24 @@ export default function Home() {
               <span className="hidden text-xs text-[#725746] sm:block">MedAesthetic Manager</span>
             </div>
           </a>
-          <nav className="hidden items-center gap-6 text-sm font-medium text-[#6f5a4d] lg:flex">
-            <a className="transition hover:text-[#2a1b14]" href="#produkt">Produkt</a>
-            <a className="transition hover:text-[#2a1b14]" href="#rollen">Rollen</a>
-            <a className="transition hover:text-[#2a1b14]" href="#mvp">MVP</a>
-            <a className="transition hover:text-[#2a1b14]" href="#dsgvo">DSGVO</a>
-          </nav>
-          <Button size="sm">Demo anfragen</Button>
+          <details className="group relative ml-auto">
+            <summary className="flex h-10 cursor-pointer list-none items-center gap-2 rounded-full bg-[#ead8c4] px-4 text-sm font-medium text-[#3b261d] shadow-border transition hover:bg-[#ddc7ad] [&::-webkit-details-marker]:hidden">
+              <Menu className="h-4 w-4" />
+              Menü
+            </summary>
+            <div className="absolute right-0 top-12 z-50 w-[min(88vw,360px)] overflow-hidden rounded-3xl bg-[#fbf7f0] p-2 shadow-warm">
+              {topMenuItems.map((item) => (
+                <a
+                  key={item.href}
+                  className="block rounded-2xl px-4 py-3 text-left transition hover:bg-[#f1e4d4]"
+                  href={item.href}
+                >
+                  <span className="block text-sm font-semibold text-[#2a1b14]">{item.label}</span>
+                  <span className="mt-1 block text-xs leading-5 text-[#725746]">{item.description}</span>
+                </a>
+              ))}
+            </div>
+          </details>
         </div>
       </header>
 
@@ -111,6 +124,22 @@ export default function Home() {
               ))}
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-8" aria-label="Schnellzugriff">
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-5">
+          {topMenuItems.map((item) => (
+            <a
+              key={item.href}
+              id={item.href.slice(1)}
+              className="scroll-mt-24 rounded-2xl bg-[#fbf7f0]/82 p-5 shadow-border transition hover:-translate-y-0.5 hover:bg-[#f1e4d4]"
+              href={item.href}
+            >
+              <p className="font-editorial text-lg font-medium tracking-[-0.48px] text-[#2a1b14]">{item.label}</p>
+              <p className="mt-2 text-sm leading-6 text-[#725746]">{item.description}</p>
+            </a>
+          ))}
         </div>
       </section>
 
