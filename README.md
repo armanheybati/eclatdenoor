@@ -1,21 +1,53 @@
 # eclatdenoor
 
-Dieses Repository wird als Vercel-Projekt für eine Webseite aufgebaut.
+Next.js-Webseite für Éclat de Noor, vorbereitet für Vercel Deployment und Neon Postgres über Prisma.
 
-Der konkrete Produkt-/Website-Zuschnitt wird noch gemeinsam festgelegt. Bis dahin dient dieses Repo als sauberer Startpunkt für Zugriff, Deployment-Setup und spätere Projektstruktur.
+## Stack
 
-## Grundsätze
+- Next.js App Router
+- React + TypeScript
+- Tailwind CSS
+- shadcn/ui-inspirierte Komponenten (`Button`, `Badge`, `Card`)
+- Prisma ORM
+- Neon Postgres
+- Vercel Deployment über GitHub + Deploy Hook
+
+## Lokale Entwicklung
+
+```bash
+npm install
+npm run db:generate
+npm run dev
+```
+
+Die echten Secrets liegen lokal in `.env.local` und werden nicht committed. Für neue Umgebungen dient `.env.example` als Vorlage.
+
+## Datenbank
+
+Prisma-Schema: `prisma/schema.prisma`
+
+Aktuelles Initialmodell:
+
+- `Lead`
+
+Nützliche Befehle:
+
+```bash
+npm run db:generate
+npm run db:push
+npm run db:studio
+```
+
+## Qualitätssicherung
+
+```bash
+npm run test
+npm run typecheck
+npm run build
+```
+
+## Sicherheit
 
 - Keine Passwörter, Tokens, Kundendaten oder privaten Dokumente ins Repository committen.
-- Secrets nur über Plattformen wie Vercel Environment Variables, GitHub Secrets oder sichere direkte Übergabe verwalten.
-- Deployments sollen später über Vercel + GitHub-Integration oder explizite Deploy-Hooks laufen.
-
-## Aktueller Setup-Stand
-
-- GitHub-Repo per SSH Deploy Key angebunden.
-- Deploy Key ist repo-spezifisch und für Schreibzugriff vorgesehen.
-- Lokaler Arbeitsordner von Parvaneh: `/home/hermes/parvaneh/eclatdenoor`.
-
-## Nächste Entscheidungen
-
-Siehe `docs/access-setup.md` für die Zugänge und Setup-Informationen, die noch benötigt werden.
+- Secrets nur über `.env.local`, Vercel Environment Variables oder andere sichere Secret Stores verwalten.
+- `.env`, `.env.*`, `.vercel/`, Keys und Zertifikate sind per `.gitignore` ausgeschlossen.
