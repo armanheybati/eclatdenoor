@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Éclat de Noor",
-  description: "A modern Next.js site connected to Neon Postgres and deployed on Vercel.",
+  title: "Éclat de Noor | MedAesthetic Manager",
+  description:
+    "DSGVO-konforme Praxis- und Patienten-App für Fotodokumentation, digitale Aufklärung, Recall-Reminder und Termine in der ästhetischen Medizin.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
