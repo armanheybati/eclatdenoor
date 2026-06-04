@@ -24,6 +24,7 @@ import {
   heroMetrics,
   mvpModules,
   productPillars,
+  reminderPushExample,
   treatmentJourney,
 } from "@/lib/medaesthetic-content";
 import { topMenuItems } from "@/lib/top-menu";
@@ -50,15 +51,15 @@ export default function Home() {
               <Menu className="h-4 w-4" />
               Menü
             </summary>
-            <div className="absolute right-0 top-12 z-50 max-h-[75vh] w-[min(90vw,440px)] overflow-y-auto rounded-3xl bg-[#fbf7f0] p-2 shadow-warm">
+            <div className="absolute right-0 top-12 z-50 max-h-[82vh] w-[min(92vw,430px)] space-y-3 overflow-y-auto rounded-3xl bg-[#f5f0e8] p-3 shadow-warm">
               {topMenuItems.map((item) => (
                 <a
                   key={item.href}
-                  className="block rounded-2xl px-4 py-3 text-left transition hover:bg-[#f1e4d4]"
+                  className="block scroll-mt-24 rounded-2xl bg-[#fbf7f0]/82 p-5 text-left shadow-border transition hover:-translate-y-0.5 hover:bg-[#f1e4d4]"
                   href={item.href}
                 >
-                  <span className="block text-sm font-semibold text-[#2a1b14]">{item.label}</span>
-                  <span className="mt-1 block text-xs leading-5 text-[#725746]">{item.description}</span>
+                  <span className="block font-editorial text-lg font-medium tracking-[-0.48px] text-[#2a1b14]">{item.label}</span>
+                  <span className="mt-2 block text-sm leading-6 text-[#725746]">{item.description}</span>
                 </a>
               ))}
             </div>
@@ -126,22 +127,6 @@ export default function Home() {
               ))}
             </CardContent>
           </Card>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-8" aria-label="Schnellzugriff">
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {topMenuItems.map((item) => (
-            <a
-              key={item.href}
-              id={["#dsgvo", "#fotodokumentation"].includes(item.href) ? undefined : item.href.slice(1)}
-              className="scroll-mt-24 rounded-2xl bg-[#fbf7f0]/82 p-5 shadow-border transition hover:-translate-y-0.5 hover:bg-[#f1e4d4]"
-              href={item.href}
-            >
-              <p className="font-editorial text-lg font-medium tracking-[-0.48px] text-[#2a1b14]">{item.label}</p>
-              <p className="mt-2 text-sm leading-6 text-[#725746]">{item.description}</p>
-            </a>
-          ))}
         </div>
       </section>
 
@@ -238,6 +223,58 @@ export default function Home() {
               </Card>
             );
           })}
+        </div>
+      </section>
+
+      <section id="reminder" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Reminder als Push-Up Nachricht</p>
+            <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">
+              Automatische Erinnerung an eine Beispielpatientin — direkt auf dem Smartphone.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-[#6f5a4d]">
+              Das Reminder-System kann nach der Behandlung automatisch eine freundliche Nachricht senden, zum Beispiel für eine Botox-Auffrischung nach 4–6 Monaten.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl bg-[#fbf7f0]/82 p-4 shadow-border">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8a563d]">Patientin</p>
+                <p className="mt-2 font-editorial text-2xl font-medium tracking-[-0.96px]">{reminderPushExample.patientName}</p>
+              </div>
+              <div className="rounded-2xl bg-[#fbf7f0]/82 p-4 shadow-border">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8a563d]">Timing</p>
+                <p className="mt-2 font-editorial text-2xl font-medium tracking-[-0.96px]">{reminderPushExample.timing}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mx-auto w-full max-w-sm rounded-[3rem] bg-[#2a1b14] p-3 shadow-warm">
+            <div className="overflow-hidden rounded-[2.4rem] bg-[#f5f0e8] p-5">
+              <div className="mb-6 flex items-center justify-between text-xs font-semibold text-[#725746]">
+                <span>{reminderPushExample.deviceTime}</span>
+                <span>●●●</span>
+              </div>
+              <div className="rounded-3xl bg-[#fbf7f0]/95 p-4 shadow-warm">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#744532] text-[#ead6c1]">
+                    <BellRing className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8a563d]">{reminderPushExample.channel}</p>
+                    <p className="mt-2 font-semibold tracking-[-0.32px] text-[#2a1b14]">{reminderPushExample.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-[#6f5a4d]">{reminderPushExample.message}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[#ead8c4] p-3">
+                  <span className="text-xs font-semibold text-[#744532]">{reminderPushExample.status}</span>
+                  <span className="rounded-full bg-[#3b261d] px-3 py-1 text-xs font-semibold text-[#ead6c1]">{reminderPushExample.actionLabel}</span>
+                </div>
+              </div>
+              <div className="mt-5 rounded-3xl bg-[#ead8c4]/70 p-4 text-sm leading-6 text-[#725746]">
+                Praxis-Cockpit: Reminder für {reminderPushExample.patientName} · {reminderPushExample.treatment} · nächster Recall geplant.
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
