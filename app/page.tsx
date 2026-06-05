@@ -89,9 +89,16 @@ export default function Home() {
         <div className="absolute right-0 top-40 -z-10 h-64 w-64 rounded-full bg-[#c8a27b]/45 blur-3xl" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <Badge className="mb-6 bg-[#fbf7f0]/85 text-[#744532] shadow-border">
-              DSGVO-konforme Medical-Beauty-App für DACH-Praxen
-            </Badge>
+            <div className="mb-6" aria-label="Éclat de Noor">
+              <span className="sr-only">Éclat de Noor</span>
+              <span className="brand-spellout font-editorial text-4xl font-medium tracking-[-1.8px] text-[#744532] sm:text-5xl" aria-hidden="true">
+                {Array.from("Éclat de Noor").map((letter, index) => (
+                  <span className="brand-spellout-letter" key={`${letter}-${index}`} style={{ animationDelay: `${index * 0.075}s` }}>
+                    {letter === " " ? "\u00a0" : letter}
+                  </span>
+                ))}
+              </span>
+            </div>
             <h1 className="font-editorial text-balance text-5xl font-medium leading-[0.96] tracking-[-2.6px] sm:text-7xl sm:tracking-[-4px]">
               Von Aufklärung bis Auffrischung — ästhetische Behandlungen digital organisiert.
             </h1>
@@ -463,9 +470,14 @@ export default function Home() {
             <p className="font-editorial text-2xl font-medium tracking-[-0.96px]">Éclat de Noor</p>
             <p className="mt-2 text-sm text-[#ead6c1]/70">© {new Date().getFullYear()} Éclat de Noor. Alle Rechte vorbehalten.</p>
           </div>
-          <nav className="flex flex-wrap gap-4 text-sm font-semibold">
-            {footerLinks.map((link) => <a className="hover:text-white" href={link.href} key={link.href}>{link.label}</a>)}
-          </nav>
+          <div className="flex flex-col gap-3 md:items-end">
+            <Badge className="w-max bg-[#ead6c1]/12 text-[#ead6c1] shadow-border">
+              DSGVO-konforme Medical-Beauty-App für DACH-Praxen
+            </Badge>
+            <nav className="flex flex-wrap gap-4 text-sm font-semibold md:justify-end">
+              {footerLinks.map((link) => <a className="hover:text-white" href={link.href} key={link.href}>{link.label}</a>)}
+            </nav>
+          </div>
         </div>
       </footer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />

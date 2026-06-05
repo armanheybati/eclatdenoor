@@ -57,6 +57,18 @@
     mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
   }
 
+  .brand-spellout {
+    display: inline-flex;
+    line-height: 1;
+  }
+
+  .brand-spellout-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.42em) rotate(3deg);
+    animation: brand-letter-spell 4.8s cubic-bezier(0.2, 0.78, 0.22, 1) infinite;
+  }
+
   .reminder-gif-scene {
     animation: reminder-scene-loop 7.2s ease-in-out infinite;
   }
@@ -90,6 +102,24 @@
 
   .reminder-practice-note {
     animation: reminder-note-updates 7.2s ease-in-out infinite;
+  }
+}
+
+@keyframes brand-letter-spell {
+  0%, 7% {
+    opacity: 0;
+    transform: translateY(0.42em) rotate(3deg);
+    filter: blur(5px);
+  }
+  19%, 78% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    filter: blur(0);
+  }
+  92%, 100% {
+    opacity: 0;
+    transform: translateY(-0.22em) rotate(-2deg);
+    filter: blur(4px);
   }
 }
 
