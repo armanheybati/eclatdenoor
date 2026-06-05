@@ -56,4 +56,99 @@
     background-size: 48px 48px;
     mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
   }
+
+  .reminder-gif-scene {
+    animation: reminder-scene-loop 7.2s ease-in-out infinite;
+  }
+
+  .reminder-practice-bubble {
+    animation: reminder-practice-arrives 7.2s ease-in-out infinite;
+    transform-origin: top left;
+  }
+
+  .reminder-typing {
+    animation: reminder-typing-bubble 7.2s ease-in-out infinite;
+    transform-origin: bottom right;
+  }
+
+  .reminder-typing span {
+    animation: reminder-typing-dot 1.05s ease-in-out infinite;
+  }
+
+  .reminder-typing span:nth-child(2) {
+    animation-delay: 0.14s;
+  }
+
+  .reminder-typing span:nth-child(3) {
+    animation-delay: 0.28s;
+  }
+
+  .reminder-patient-bubble {
+    animation: reminder-patient-replies 7.2s ease-in-out infinite;
+    transform-origin: bottom right;
+  }
+
+  .reminder-practice-note {
+    animation: reminder-note-updates 7.2s ease-in-out infinite;
+  }
+}
+
+@keyframes reminder-scene-loop {
+  0%, 100% { transform: translateY(0); }
+  72%, 86% { transform: translateY(-6px); }
+}
+
+@keyframes reminder-practice-arrives {
+  0%, 10% {
+    opacity: 0;
+    transform: translateY(-28px) scale(0.96);
+  }
+  18%, 100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  24%, 28% {
+    box-shadow: rgba(116, 69, 50, 0.22) 0 20px 54px, rgba(116, 69, 50, 0.2) 0 0 0 1px;
+  }
+}
+
+@keyframes reminder-typing-bubble {
+  0%, 34%, 58%, 100% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.88);
+  }
+  40%, 52% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes reminder-typing-dot {
+  0%, 60%, 100% { opacity: 0.35; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+@keyframes reminder-patient-replies {
+  0%, 54% {
+    opacity: 0;
+    transform: translateY(26px) scale(0.94);
+  }
+  64%, 100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  72%, 78% {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+@keyframes reminder-note-updates {
+  0%, 67% {
+    opacity: 0.42;
+    transform: translateY(10px);
+  }
+  78%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

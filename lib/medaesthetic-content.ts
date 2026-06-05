@@ -140,13 +140,15 @@ export const reminderPushExample = {
   patientName: "Ayda Beispiel",
   treatment: "Botox",
   channel: "Push-Up Nachricht",
-  title: "Reminder: Zeit für deine Botox-Auffrischung",
+  title: "Praxis Éclat de Noor",
   message:
-    "Hallo Ayda, deine letzte Botox-Behandlung liegt bald 4–6 Monate zurück. Vereinbare jetzt bequem deinen Auffrischungstermin bei Éclat de Noor.",
+    "Hallo Ayda, deine Botox-Auffrischung ist bald wieder dran. Möchtest du direkt einen Termin wählen?",
+  patientReply: "Danke, ich buche direkt meinen Auffrischungstermin.",
   timing: "4–6 Monate nach Botox-Behandlung",
-  actionLabel: "Termin vereinbaren",
+  actionLabel: "Termin wählen",
   deviceTime: "09:41",
-  status: "Automatisch geplant",
+  status: "Reminder von der Praxis angekommen",
+  reactionLabel: "Patientin reagiert",
 } as const;
 
 export const compliancePoints = [

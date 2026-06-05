@@ -227,6 +227,75 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="reminder" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Reminder als animierte Nachricht</p>
+            <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">
+              Praxis sendet den Recall — die Patientin reagiert direkt im Smartphone-Flow.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-[#6f5a4d]">
+              Das Reminder-System wirkt wie ein kleines GIF: Die Praxis-Nachricht kommt an, die Patientin liest sie und antwortet mit einer Terminaktion.
+            </p>
+          </div>
+
+          <div className="mx-auto w-full max-w-sm rounded-[3rem] bg-[#2a1b14] p-3 shadow-warm">
+            <div className="relative min-h-[500px] overflow-hidden rounded-[2.4rem] bg-[#f5f0e8] p-5">
+              <div className="mb-5 flex items-center justify-between text-xs font-semibold text-[#725746]">
+                <span>{reminderPushExample.deviceTime}</span>
+                <span>●●●</span>
+              </div>
+
+              <div className="reminder-gif-scene space-y-4" aria-label="Animiertes Reminder-GIF: Praxisnachricht kommt an und Patientin reagiert">
+                <div className="rounded-[2rem] bg-[#ead8c4]/72 p-4 shadow-border">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#d7b28e] text-lg shadow-border">👩🏻</div>
+                    <div>
+                      <p className="text-sm font-semibold tracking-[-0.24px] text-[#2a1b14]">{reminderPushExample.patientName}</p>
+                      <p className="text-xs text-[#725746]">Patientinnen-App · {reminderPushExample.treatment}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="reminder-practice-bubble rounded-3xl bg-[#fbf7f0]/95 p-4 shadow-warm">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#744532] text-[#ead6c1]">
+                      <BellRing className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold tracking-[-0.32px] text-[#2a1b14]">{reminderPushExample.title}</p>
+                      <p className="mt-2 text-sm leading-6 text-[#6f5a4d]">{reminderPushExample.message}</p>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[#ead8c4] p-3">
+                    <span className="text-xs font-semibold text-[#744532]">{reminderPushExample.status}</span>
+                    <span className="rounded-full bg-[#3b261d] px-3 py-1 text-xs font-semibold text-[#ead6c1]">{reminderPushExample.actionLabel}</span>
+                  </div>
+                </div>
+
+                <div className="reminder-typing ml-auto flex w-max max-w-[78%] items-center gap-1 rounded-3xl bg-[#3b261d] px-4 py-3 text-[#ead6c1] shadow-warm" aria-hidden="true">
+                  <span className="h-2 w-2 rounded-full bg-current" />
+                  <span className="h-2 w-2 rounded-full bg-current" />
+                  <span className="h-2 w-2 rounded-full bg-current" />
+                </div>
+
+                <div className="reminder-patient-bubble ml-auto max-w-[84%] rounded-[1.7rem] bg-[#3b261d] p-4 text-[#ead6c1] shadow-warm">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#d8b28f]">{reminderPushExample.reactionLabel}</p>
+                  <p className="mt-2 text-sm leading-6">{reminderPushExample.patientReply}</p>
+                  <div className="mt-4 rounded-2xl bg-[#ead6c1] px-4 py-3 text-center text-xs font-bold text-[#3b261d]">
+                    {reminderPushExample.actionLabel}
+                  </div>
+                </div>
+
+                <div className="reminder-practice-note rounded-3xl bg-[#ead8c4]/70 p-4 text-sm leading-6 text-[#725746]">
+                  Praxis-Cockpit: Reminder für {reminderPushExample.patientName} · {reminderPushExample.treatment} · nächster Recall geplant.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="rollen" className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-4 lg:grid-cols-2">
           {appRoles.map((role) => (
@@ -369,47 +438,6 @@ export default function Home() {
               <p className="mt-3 text-sm leading-6 text-[#725746]">{item.description}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section id="reminder" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
-            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Reminder als Push-Up Nachricht</p>
-            <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">
-              Automatische Erinnerung an eine Beispielpatientin — direkt auf dem Smartphone.
-            </h2>
-            <p className="mt-5 text-base leading-7 text-[#6f5a4d]">
-              Das Reminder-System kann nach der Behandlung automatisch eine freundliche Nachricht senden.
-            </p>
-          </div>
-
-          <div className="mx-auto w-full max-w-sm rounded-[3rem] bg-[#2a1b14] p-3 shadow-warm">
-            <div className="overflow-hidden rounded-[2.4rem] bg-[#f5f0e8] p-5">
-              <div className="mb-6 flex items-center justify-between text-xs font-semibold text-[#725746]">
-                <span>{reminderPushExample.deviceTime}</span>
-                <span>●●●</span>
-              </div>
-              <div className="rounded-3xl bg-[#fbf7f0]/95 p-4 shadow-warm">
-                <div className="flex items-start gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#744532] text-[#ead6c1]">
-                    <BellRing className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="font-semibold tracking-[-0.32px] text-[#2a1b14]">{reminderPushExample.title}</p>
-                    <p className="mt-2 text-sm leading-6 text-[#6f5a4d]">{reminderPushExample.message}</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[#ead8c4] p-3">
-                  <span className="text-xs font-semibold text-[#744532]">{reminderPushExample.status}</span>
-                  <span className="rounded-full bg-[#3b261d] px-3 py-1 text-xs font-semibold text-[#ead6c1]">{reminderPushExample.actionLabel}</span>
-                </div>
-              </div>
-              <div className="mt-5 rounded-3xl bg-[#ead8c4]/70 p-4 text-sm leading-6 text-[#725746]">
-                Praxis-Cockpit: Reminder für {reminderPushExample.patientName} · {reminderPushExample.treatment} · nächster Recall geplant.
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

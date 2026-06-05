@@ -20,6 +20,11 @@ export const topMenuItems = [
     description: "Before/After und Verlauf",
   },
   {
+    label: "Reminder",
+    href: "#reminder",
+    description: "Animierte Praxisnachricht mit Patientinnen-Reaktion",
+  },
+  {
     label: "Allgemeine Hinweise zur Beachtung nach Therapie",
     href: "#nachsorgehinweise",
     description: "Vorsichtsmaßnahmen nach Behandlung",
