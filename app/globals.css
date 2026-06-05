@@ -59,12 +59,12 @@
 
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(34px);
-    filter: blur(10px);
+    transform: translateY(22px);
+    filter: blur(6px);
     transition:
-      opacity 0.95s cubic-bezier(0.2, 0.78, 0.22, 1),
-      transform 0.95s cubic-bezier(0.2, 0.78, 0.22, 1),
-      filter 0.95s cubic-bezier(0.2, 0.78, 0.22, 1);
+      opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 1.35s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform, filter;
   }
 
@@ -75,15 +75,15 @@
   }
 
   .scroll-reveal.is-visible > * {
-    animation: topic-content-rise 0.82s cubic-bezier(0.2, 0.78, 0.22, 1) both;
+    animation: topic-content-rise 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .scroll-reveal.is-visible > *:nth-child(2) {
-    animation-delay: 0.12s;
+    animation-delay: 0.18s;
   }
 
   .scroll-reveal.is-visible > *:nth-child(3) {
-    animation-delay: 0.22s;
+    animation-delay: 0.32s;
   }
 
   .brand-spellout {
@@ -137,7 +137,7 @@
 @keyframes topic-content-rise {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(14px);
   }
   100% {
     opacity: 1;
