@@ -16,6 +16,7 @@ import {
 import { BeforeAfterSlider } from "@/components/before-after-slider";
 import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { ConsentManagedScripts } from "@/components/consent-managed-scripts";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -150,7 +151,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="produkt" className="mx-auto max-w-7xl px-6 py-16">
+      <section id="produkt" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl px-6 py-16">
         <div className="mb-8 max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Kernfunktionen</p>
           <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">
@@ -175,7 +176,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="login-aerztinnen" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="login-aerztinnen" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="mb-8 max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Navigation & Coming Soon</p>
           <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Zugänge und Workflows werden sichtbar vorbereitet.</h2>
@@ -214,7 +215,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="fotodokumentation" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="fotodokumentation" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
             <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Before/After-Fotos</p>
@@ -233,7 +234,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="reminder" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="reminder" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
             <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Reminder als animierte Nachricht</p>
@@ -302,7 +303,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="rollen" className="mx-auto max-w-7xl px-6 py-16">
+      <section id="rollen" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-4 lg:grid-cols-2">
           {appRoles.map((role) => (
             <Card key={role.title} className="bg-[#3b261d] text-[#fbf7f0]">
@@ -326,7 +327,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="mvp" className="mx-auto max-w-7xl px-6 py-16">
+      <section id="mvp" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl px-6 py-16">
         <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
             <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">MVP-Fokus</p>
@@ -354,7 +355,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="waitlist" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="waitlist" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Conversion & Lead-Erfassung</p>
@@ -368,7 +369,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="rechtliches" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="rechtliches" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="mb-8 max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Rechtliches (Pflicht)</p>
           <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Pflichtseiten, AVV und Consent sichtbar verlinkt.</h2>
@@ -383,7 +384,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="vertrauen" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="vertrauen" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <Card className="bg-[#3b261d] text-white">
           <CardHeader>
             <CardTitle className="text-white">{teamSection.title}</CardTitle>
@@ -397,7 +398,7 @@ export default function Home() {
         </Card>
       </section>
 
-      <section id="preise" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="preise" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <Card className="bg-[#fbf7f0]/86">
           <CardHeader>
             <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Preismodell</p>
@@ -407,7 +408,7 @@ export default function Home() {
         </Card>
       </section>
 
-      <section id="faq" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="faq" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="mb-8 max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">FAQ</p>
           <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Häufige Fragen für Pilotpraxen.</h2>
@@ -422,7 +423,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="roadmap" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="roadmap" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="mb-8 max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Roadmap</p>
           <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">Was nach dem MVP kommt.</h2>
@@ -441,7 +442,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="dsgvo" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16 pb-24">
+      <section id="dsgvo" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16 pb-24">
         <Card className="overflow-hidden bg-[#744532] text-white">
           <div className="p-8 sm:p-10 lg:p-12">
             <LockKeyhole className="h-9 w-9 text-[#ead6c1]" />
@@ -481,6 +482,7 @@ export default function Home() {
         </div>
       </footer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
+      <ScrollReveal />
       <ConsentManagedScripts />
       <CookieConsentBanner />
     </main>
