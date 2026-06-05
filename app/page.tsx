@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { BeforeAfterSlider } from "@/components/before-after-slider";
 import { CookieConsentBanner } from "@/components/cookie-consent-banner";
-import { PlausibleAnalytics } from "@/components/plausible-analytics";
+import { ConsentManagedScripts } from "@/components/consent-managed-scripts";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -37,7 +37,6 @@ import {
   legalLinks,
   pricingNotice,
   roadmapItems,
-  socialProof,
   softwareApplicationSchema,
   teamSection,
   waitlistConfig,
@@ -354,7 +353,7 @@ export default function Home() {
             <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Conversion & Lead-Erfassung</p>
             <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">{waitlistConfig.primaryCta} und Pilotzugang sichern.</h2>
             <p className="mt-5 text-base leading-7 text-[#6f5a4d]">
-              Trage deine Praxis-E-Mail ein. Die Bestätigungsmail wird im Produktflow vorbereitet; ein echter Versand benötigt später einen angebundenen E-Mail-Anbieter.
+              Trage deine Praxis-E-Mail ein. Die Vormerkung wird gespeichert und eine automatische Bestätigungsmail über den angebundenen E-Mail-Anbieter versendet.
             </p>
             <p className="mt-4 text-sm font-semibold text-[#744532]">Kontakt: <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a></p>
           </div>
@@ -378,26 +377,17 @@ export default function Home() {
       </section>
 
       <section id="vertrauen" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
-        <div className="grid gap-5 lg:grid-cols-3">
-          <Card className="bg-[#3b261d] text-white lg:col-span-1">
-            <CardHeader>
-              <CardTitle className="text-white">{teamSection.title}</CardTitle>
-              <CardDescription className="text-white/70">{teamSection.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-3">
+        <Card className="bg-[#3b261d] text-white">
+          <CardHeader>
+            <CardTitle className="text-white">{teamSection.title}</CardTitle>
+            <CardDescription className="text-white/70">{teamSection.description}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-3 md:grid-cols-3">
               {teamSection.bullets.map((bullet) => <p className="rounded-2xl bg-[#ead6c1]/8 p-3 text-sm text-white/82" key={bullet}>{bullet}</p>)}
-            </CardContent>
-          </Card>
-          <Card className="bg-[#fbf7f0]/82 lg:col-span-2">
-            <CardHeader>
-              <CardTitle>{socialProof.headline}</CardTitle>
-              <CardDescription>{socialProof.testimonialPlaceholder}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="rounded-3xl border border-dashed border-[#744532]/35 bg-[#ead8c4]/55 p-6 text-center text-sm font-semibold text-[#744532]">{socialProof.logoPlaceholder}</div>
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </CardContent>
+        </Card>
       </section>
 
       <section id="preise" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
@@ -433,7 +423,10 @@ export default function Home() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {roadmapItems.map((item, index) => (
             <div className="rounded-3xl bg-[#fbf7f0]/86 p-6 shadow-border" key={item.title}>
-              <p className="font-mono text-xs font-semibold text-[#8a563d]">0{index + 1}</p>
+              <div className="flex items-center justify-between gap-3">
+                <p className="font-mono text-xs font-semibold text-[#8a563d]">0{index + 1}</p>
+                <span className="rounded-full bg-[#ead8c4] px-3 py-1 text-xs font-bold text-[#744532]">{item.timeframe}</span>
+              </div>
               <p className="font-editorial mt-4 text-2xl font-medium tracking-[-0.96px]">{item.title}</p>
               <p className="mt-3 text-sm leading-6 text-[#725746]">{item.description}</p>
             </div>
@@ -476,7 +469,7 @@ export default function Home() {
         </div>
       </footer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
-      <PlausibleAnalytics />
+      <ConsentManagedScripts />
       <CookieConsentBanner />
     </main>
   );

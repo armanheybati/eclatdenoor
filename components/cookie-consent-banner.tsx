@@ -8,7 +8,7 @@ type ConsentState = Record<string, boolean>;
 const STORAGE_KEY = "eclat-consent-v1";
 
 export function CookieConsentBanner() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [choices, setChoices] = useState<ConsentState>({ necessary: true, analytics: false, marketing: false });
 
   useEffect(() => {

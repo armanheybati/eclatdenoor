@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type BeforeAfterComparison = {
   treatment: string;
@@ -19,6 +19,16 @@ type BeforeAfterSliderProps = {
 
 export function BeforeAfterSlider({ comparison }: BeforeAfterSliderProps) {
   const [position, setPosition] = useState(52);
+  const sliderFrameRef = useRef<HTMLDivElement>(null);
+
+  function updatePosition(clientX: number) {
+    const frame = sliderFrameRef.current;
+    if (!frame) return;
+
+    const rect = frame.getBoundingClientRect();
+    const nextPosition = ((clientX - rect.left) / rect.width) * 100;
+    setPosition(Math.min(100, Math.max(0, Math.round(nextPosition))));
+  }
 
   return (
     <article className="overflow-hidden rounded-3xl bg-[#fbf7f0]/86 p-4 shadow-border">
@@ -30,7 +40,18 @@ export function BeforeAfterSlider({ comparison }: BeforeAfterSliderProps) {
         <span className="rounded-full bg-[#ead8c4] px-3 py-1 text-xs font-semibold text-[#744532]">Before/After</span>
       </div>
 
-      <div className="relative h-80 overflow-hidden rounded-3xl bg-[#ead8c4] shadow-border" aria-label={`${comparison.treatment} Vorher-Nachher-Vergleich`}>
+      <div
+        ref={sliderFrameRef}
+        className="relative h-80 touch-none overflow-hidden rounded-3xl bg-[#ead8c4] shadow-border"
+        aria-label={`${comparison.treatment} Vorher-Nachher-Vergleich`}
+        onPointerDown={(event) => {
+          event.currentTarget.setPointerCapture(event.pointerId);
+          updatePosition(event.clientX);
+        }}
+        onPointerMove={(event) => {
+          if (event.buttons > 0) updatePosition(event.clientX);
+        }}
+      >
         <div className={`absolute inset-0 bg-gradient-to-br ${comparison.beforeTone}`}>
           <FacePlaceholder treatment={comparison.treatment} phase="vorher" />
           <PhotoLabel label={comparison.beforeLabel} align="left" />

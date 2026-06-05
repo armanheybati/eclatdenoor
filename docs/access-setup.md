@@ -88,7 +88,7 @@ Bitte vor Umsetzung in Vercel prüfen, weil Vercel die exakten DNS-Hinweise pro 
 
 Für lokale Entwicklung gibt es eine Vorlage in `.env.example`.
 
-Für Vercel sollten die echten Werte direkt in Vercel unter **Project Settings → Environment Variables** eingetragen werden. Für Next.js/Neon sind insbesondere relevant:
+Für Vercel sollten die echten Werte direkt in Vercel unter **Project Settings → Environment Variables** eingetragen werden. Für Next.js/Neon und Waitlist-Mailversand sind insbesondere relevant:
 
 - `DATABASE_URL`
 - `DATABASE_URL_UNPOOLED`
@@ -99,6 +99,15 @@ Für Vercel sollten die echten Werte direkt in Vercel unter **Project Settings �
 - `POSTGRES_HOST`
 - `POSTGRES_PASSWORD`
 - `POSTGRES_DATABASE`
+- `RESEND_API_KEY`
+- `RESEND_FROM_EMAIL`
+- `RESEND_REPLY_TO_EMAIL`
+- `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`
+- `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_URL`
+- `NEXT_PUBLIC_MARKETING_SCRIPT_URL` (nur setzen, wenn ein Marketing-Skript wirklich aktiv werden soll)
+- `NEXT_PUBLIC_MARKETING_SCRIPT_ID`
+
+Der Waitlist-Endpunkt speichert die Vormerkung in Neon/Postgres und versendet die automatische Bestätigungsmail über Resend, sobald `RESEND_API_KEY` und `RESEND_FROM_EMAIL` gesetzt sind.
 
 Je nach späterem ORM/DB-Client reichen wahrscheinlich weniger Variablen; bis zur Stack-Entscheidung ist die breitere Neon/Vercel-kompatible Vorlage sinnvoll.
 

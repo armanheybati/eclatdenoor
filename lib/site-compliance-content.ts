@@ -87,16 +87,28 @@ export const faqs = [
     answer: "Ja, die Roadmap sieht praxisindividuelle Dokumente und Versionierung vor.",
   },
   {
+    question: "Android oder nur iOS?",
+    answer: "Geplant ist zuerst eine webbasierte Lösung, die auf modernen iOS- und Android-Browsern nutzbar ist. Native Apps können später ergänzt werden, wenn Pilotpraxen sie wirklich benötigen.",
+  },
+  {
+    question: "Wer haftet für die Aufklärungsbögen?",
+    answer: "Die Praxis bleibt für medizinische Inhalte, Aufklärung und finale Freigabe verantwortlich. Éclat de Noor kann Vorlagen, Versionierung und Signaturstatus bereitstellen, ersetzt aber keine rechtliche oder ärztliche Prüfung.",
+  },
+  {
+    question: "Wie werden Bestandsdaten migriert?",
+    answer: "Für Pilotpraxen ist ein pragmatischer Import per strukturierter CSV/Excel-Datei geplant. Sensible Dokumente und Fotos werden nur nach abgestimmtem Datenschutz- und Löschkonzept übernommen.",
+  },
+  {
     question: "Werden echte App-Screenshots gezeigt?",
     answer: "Aktuell sind detaillierte Mockups eingebunden; echte Screenshots folgen mit der MVP-Oberfläche.",
   },
 ] as const;
 
 export const roadmapItems = [
-  { title: "MVP", description: "Login, Fotodokumentation, Aufklärungsbögen, Reminder und Termin-CTA." },
-  { title: "Praxis-Dokumente", description: "Eigene Bögen, Versionierung, Signaturstatus und AVV-Download." },
-  { title: "PatientInnen-App", description: "Self-Service für Termine, Betroffenenrechte, Dokumente und Recall-Reminder." },
-  { title: "Integrationen", description: "Kalender, E-Mail/SMS/Push-Anbieter und optionale Analytics nach Consent." },
+  { timeframe: "Q3 2026", title: "MVP", description: "Login, Fotodokumentation, Aufklärungsbögen, Reminder und Termin-CTA." },
+  { timeframe: "Q4 2026", title: "Praxis-Dokumente", description: "Eigene Bögen, Versionierung, Signaturstatus und AVV-Download." },
+  { timeframe: "Q1 2027", title: "PatientInnen-App", description: "Self-Service für Termine, Betroffenenrechte, Dokumente und Recall-Reminder." },
+  { timeframe: "Q2 2027", title: "Integrationen", description: "Kalender, E-Mail/SMS/Push-Anbieter und optionale Analytics nach Consent." },
 ] as const;
 
 export const softwareApplicationSchema = {
