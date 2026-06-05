@@ -21,7 +21,7 @@ export const productPillars = [
       "Behandlungsspezifische Reminder für Auffrischungstermine, Vorsichtsmaßnahmen und Fotouploads — DSGVO-konform für den DACH-Markt gedacht.",
   },
   {
-    title: "Schlanke Terminlogik",
+    title: "Flexible Terminierungsmöglichkeiten",
     description:
       "Patienten stellen Terminanfragen, Praxen bestätigen Slots und automatische Erinnerungen reduzieren manuellen Praxisaufwand.",
   },
