@@ -93,7 +93,7 @@ export default function Home() {
               <span className="sr-only">Éclat de Noor</span>
               <span className="brand-spellout font-editorial text-4xl font-medium tracking-[-1.8px] text-[#744532] sm:text-5xl" aria-hidden="true">
                 {Array.from("Éclat de Noor").map((letter, index) => (
-                  <span className="brand-spellout-letter" key={`${letter}-${index}`} style={{ animationDelay: `${index * 0.075}s` }}>
+                  <span className="brand-spellout-letter" key={`${letter}-${index}`} style={{ animationDelay: `${index * 0.14}s` }}>
                     {letter === " " ? "\u00a0" : letter}
                   </span>
                 ))}
