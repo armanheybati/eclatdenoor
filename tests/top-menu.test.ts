@@ -8,6 +8,7 @@ describe("topMenuItems", () => {
       "Login für PatientInnen",
       "Aufklärungsbögen",
       "Fotodokumentation",
+      "Reminder",
       "Allgemeine Hinweise zur Beachtung nach Therapie",
       "Terminvereinbarung",
       "Datenschutz-Grundverordnung (DSGVO)",

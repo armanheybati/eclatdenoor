@@ -8,9 +8,10 @@ describe("consent and waitlist requirements", () => {
   });
 
   it("defines a waitlist form with confirmation email copy", () => {
-    expect(waitlistConfig.primaryCta).toBe("Jetzt vormerken");
+    expect(waitlistConfig.primaryCta).toBe("Pilotzugang anfragen");
     expect(waitlistConfig.emailFieldLabel).toContain("E-Mail");
     expect(waitlistConfig.confirmationSubject).toContain("Éclat de Noor");
-    expect(waitlistConfig.confirmationMessage).toContain("Bestätigung");
+    expect(waitlistConfig.confirmationMessage).toContain("bestätige");
+    expect(waitlistConfig.consentLabel).toContain("Double-Opt-in");
   });
 });

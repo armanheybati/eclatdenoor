@@ -37,15 +37,59 @@ export const consentCategories = [
 ] as const;
 
 export const waitlistConfig = {
-  primaryCta: "Jetzt vormerken",
-  emailFieldLabel: "E-Mail-Adresse",
-  confirmationSubject: "Éclat de Noor Vormerkung bestätigt",
+  primaryCta: "Pilotzugang anfragen",
+  emailFieldLabel: "Praxis-E-Mail-Adresse",
+  confirmationSubject: "Bitte bestätige deine Éclat de Noor Anfrage",
   confirmationMessage:
-    "Bestätigung: Danke für deine Vormerkung. Wir melden uns mit Pilotzugang, Preisen und Onboarding-Schritten.",
-  privacyNote: "Mit dem Absenden akzeptierst du die Datenschutzerklärung. Keine Weitergabe an Dritte.",
+    "Danke für deine Anfrage zum Pilotzugang. Bitte bestätige deine E-Mail-Adresse, damit wir deine Praxis kontaktieren dürfen.",
+  formSuccessMessage: "Fast geschafft: Bitte bestätige deine Anfrage über den Link in deiner E-Mail.",
+  privacyNote: "Wir nutzen deine Angaben ausschließlich zur Bearbeitung der Pilotanfrage und dokumentieren die Einwilligung zum Nachweis des Opt-ins.",
+  consentLabel:
+    "Ich stimme zu, dass Éclat de Noor meine Praxis-E-Mail zur Bearbeitung der Pilotzugang-Anfrage verarbeitet und mir eine Double-Opt-in-Bestätigung zusendet.",
 } as const;
 
-export const pricingNotice = "Preise folgen – Pilotpraxen erhalten ein individuelles Angebot auf Anfrage.";
+export const pricingNotice = "SaaS-Modell pro Praxis, monatlich oder jährlich; bei jährlicher Zahlung sind 20 % Rabatt vorgesehen.";
+
+export const pilotOffer = {
+  title: "Pilot-Angebot",
+  description: "3 Monate kostenlos für ausgewählte Pilotpraxen — inklusive Onboarding, Feedback-Slots und priorisierter MVP-Einrichtung.",
+} as const;
+
+export const pricingPlans = [
+  {
+    name: "Starter",
+    price: "49 €",
+    description: "Für Solo-Praxen und kleine Medical-Beauty-Setups.",
+    features: ["1 Behandler", "bis 100 Patienten", "5 GB Foto-Speicher", "Standard-Aufklärungsbögen", "Push-Reminder", "E-Mail-Support"],
+  },
+  {
+    name: "Professional",
+    price: "89 €",
+    description: "Für wachsende Praxen mit mehreren Behandlern.",
+    features: ["bis 3 Behandler", "bis 500 Patienten", "25 GB Foto-Speicher", "anpassbare Aufklärungsbögen", "SMS-Reminder-Kontingent", "E-Mail + Chat"],
+  },
+  {
+    name: "Clinic",
+    price: "149 €",
+    description: "Für größere Praxen und Klinik-Workflows.",
+    features: ["unbegrenzte Behandler", "unbegrenzte Patienten", "100 GB Foto-Speicher", "eigene Aufklärungsbögen", "SMS unbegrenzt", "Priority + Telefon"],
+  },
+] as const;
+
+export const competitorComparison = {
+  title: "Vergleich mit bestehenden Lösungen",
+  note: "Faces kostenlos mit stark eingeschränktem Funktionsumfang; kostenpflichtige Erweiterungen nötig.",
+  rows: [
+    { criterion: "Echte Patienten-App", medaesthetic: "✓", pabau: "–", faces: "teilw.", rxphoto: "–" },
+    { criterion: "DSGVO / DACH", medaesthetic: "✓", pabau: "teilw.", faces: "–", rxphoto: "–" },
+    { criterion: "Auffrischungs-Reminder", medaesthetic: "✓", pabau: "–", faces: "–", rxphoto: "–" },
+    { criterion: "Aufklärungsbögen digital", medaesthetic: "✓", pabau: "✓", faces: "✓", rxphoto: "–" },
+    { criterion: "Fotodokumentation", medaesthetic: "✓", pabau: "✓", faces: "–", rxphoto: "✓" },
+    { criterion: "Terminbuchung", medaesthetic: "✓", pabau: "✓", faces: "✓", rxphoto: "–" },
+    { criterion: "Für kleine Praxen", medaesthetic: "✓", pabau: "–", faces: "✓", rxphoto: "✓" },
+    { criterion: "Preis (Solo-Praxis/Monat)", medaesthetic: "49 €", pabau: "99 €+", faces: "kostenlos*", rxphoto: "79 $+" },
+  ],
+} as const;
 
 export const teamSection = {
   title: "Team / Über uns",
@@ -64,7 +108,7 @@ export const socialProof = {
 export const faqs = [
   {
     question: "Was kostet Éclat de Noor?",
-    answer: "Preise folgen. Für Pilotpraxen ist ein individuelles Angebot auf Anfrage vorgesehen.",
+    answer: "Das geplante SaaS-Modell startet bei 49 €/Monat pro Praxis. Für ausgewählte Pilotpraxen sind 3 Monate kostenlos vorgesehen.",
   },
   {
     question: "Wie schnell ist die Einrichtung möglich?",
@@ -121,7 +165,7 @@ export const softwareApplicationSchema = {
     "DSGVO-orientierte Praxis- und Patienten-App für Fotodokumentation, Aufklärung, Reminder und Terminprozesse in Medical Aesthetics.",
   offers: {
     "@type": "Offer",
-    price: "0",
+    price: "49",
     priceCurrency: "EUR",
     availability: "https://schema.org/PreOrder",
     description: pricingNotice,

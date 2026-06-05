@@ -36,7 +36,10 @@ import {
   faqs,
   footerLinks,
   legalLinks,
+  pilotOffer,
   pricingNotice,
+  pricingPlans,
+  competitorComparison,
   roadmapItems,
   softwareApplicationSchema,
   teamSection,
@@ -355,6 +358,18 @@ export default function Home() {
         </div>
       </section>
 
+      <section data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl px-6 py-8">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-[2rem] bg-[#3b261d] p-6 text-[#ead6c1] shadow-warm sm:flex-row sm:items-center">
+          <div>
+            <p className="font-editorial text-2xl font-medium tracking-[-0.96px] text-white">Pilotpraxis werden?</p>
+            <p className="mt-2 text-sm leading-6 text-[#ead6c1]/75">Sichere dir 3 Monate kostenlosen Pilotzugang und gib Feedback direkt in die MVP-Entwicklung.</p>
+          </div>
+          <a className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-[#ead6c1] px-6 text-sm font-bold text-[#3b261d] transition hover:bg-white" href="#waitlist">
+            {waitlistConfig.primaryCta}
+          </a>
+        </div>
+      </section>
+
       <section id="waitlist" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -399,12 +414,67 @@ export default function Home() {
       </section>
 
       <section id="preise" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
-        <Card className="bg-[#fbf7f0]/86">
-          <CardHeader>
+        <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+          <div className="max-w-3xl">
             <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Preismodell</p>
-            <CardTitle>Preise folgen / auf Anfrage</CardTitle>
-            <CardDescription>{pricingNotice}</CardDescription>
+            <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">SaaS-Preise pro Praxis — klar planbar ab 49 €/Monat.</h2>
+            <p className="mt-5 text-base leading-7 text-[#6f5a4d]">{pricingNotice}</p>
+          </div>
+          <Card className="max-w-md bg-[#3b261d] text-[#fbf7f0]">
+            <CardHeader>
+              <p className="font-mono text-xs uppercase text-[#ead6c1]/75">{pilotOffer.title}</p>
+              <CardTitle className="text-white">3 Monate kostenlos</CardTitle>
+              <CardDescription className="text-white/70">{pilotOffer.description}</CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-3">
+          {pricingPlans.map((plan) => (
+            <Card className="bg-[#fbf7f0]/90" key={plan.name}>
+              <CardHeader>
+                <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">{plan.name}</p>
+                <CardTitle className="font-editorial text-4xl tracking-[-1.8px]">{plan.price}<span className="font-sans text-sm font-medium tracking-normal text-[#725746]">/Monat</span></CardTitle>
+                <CardDescription>{plan.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {plan.features.map((feature) => (
+                  <div className="flex items-start gap-3 text-sm leading-6 text-[#725746]" key={feature}>
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#744532]" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <Card className="mt-8 overflow-hidden bg-[#fbf7f0]/90">
+          <CardHeader>
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Wettbewerbsvergleich</p>
+            <CardTitle>{competitorComparison.title}</CardTitle>
+            <CardDescription>Positionierung für kleine DACH-Praxen mit Patienten-App, DSGVO-Fokus, Reminder und Fotodokumentation.</CardDescription>
           </CardHeader>
+          <CardContent>
+            <div className="overflow-x-auto rounded-3xl shadow-border">
+              <div className="min-w-[760px]">
+                <div className="grid grid-cols-[1.35fr_repeat(4,1fr)] bg-[#3b261d] text-sm font-bold text-[#ead6c1]">
+                  {['Kriterium', 'MedAesthetic', 'Pabau', 'Faces', 'RxPhoto'].map((heading) => (
+                    <div className="border-r border-[#ead6c1]/18 p-3 last:border-r-0" key={heading}>{heading}</div>
+                  ))}
+                </div>
+                {competitorComparison.rows.map((row) => (
+                  <div className="grid grid-cols-[1.35fr_repeat(4,1fr)] border-t border-[#6f4b37]/12 text-sm text-[#2a1b14] odd:bg-white/38 even:bg-[#f1e4d4]/45" key={row.criterion}>
+                    <div className="p-3 font-semibold">{row.criterion}</div>
+                    {[row.medaesthetic, row.pabau, row.faces, row.rxphoto].map((value, index) => (
+                      <div className={`p-3 text-center ${value === '✓' ? 'font-bold text-[#2f7d43]' : 'text-[#3b261d]'}`} key={`${row.criterion}-${index}`}>{value}</div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="mt-3 text-xs leading-5 text-[#725746]">* {competitorComparison.note}</p>
+          </CardContent>
         </Card>
       </section>
 
