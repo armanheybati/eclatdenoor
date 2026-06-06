@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   appRoles,
+  appointmentCalendarDemo,
   compliancePoints,
   heroMetrics,
   mvpModules,
@@ -33,6 +34,13 @@ describe("MedAesthetic Manager landing content", () => {
       "Recall-Reminder",
       "Terminanfragen",
     ]);
+  });
+
+  it("models Aydas calendar with recommended and self-selectable appointment slots", () => {
+    expect(appointmentCalendarDemo.patientName).toBe("Ayda");
+    expect(appointmentCalendarDemo.days.some((day) => day.state === "best")).toBe(true);
+    expect(appointmentCalendarDemo.days.some((day) => day.state === "free")).toBe(true);
+    expect(appointmentCalendarDemo.suggestedSlots.map((slot) => slot.note).join(" ")).toContain("Ayda kann selbst auswählen");
   });
 
   it("documents compliance and treatment journey requirements", () => {

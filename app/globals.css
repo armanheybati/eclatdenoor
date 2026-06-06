@@ -132,6 +132,29 @@
   .reminder-practice-note {
     animation: reminder-note-updates 7.2s ease-in-out infinite;
   }
+
+  .calendar-gif-phone {
+    animation: calendar-phone-float 8.4s ease-in-out infinite;
+  }
+
+  .calendar-reminder-card {
+    animation: calendar-reminder-pulse 8.4s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  .calendar-open-card {
+    animation: calendar-opens 8.4s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .calendar-confirm-card {
+    animation: calendar-confirm-appears 8.4s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  .calendar-day-best {
+    animation: calendar-best-window-glow 8.4s ease-in-out infinite;
+  }
 }
 
 @keyframes topic-content-rise {
@@ -148,7 +171,18 @@
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal,
   .scroll-reveal.is-visible,
-  .scroll-reveal.is-visible > * {
+  .scroll-reveal.is-visible > *,
+  .reminder-gif-scene,
+  .reminder-practice-bubble,
+  .reminder-typing,
+  .reminder-typing span,
+  .reminder-patient-bubble,
+  .reminder-practice-note,
+  .calendar-gif-phone,
+  .calendar-reminder-card,
+  .calendar-open-card,
+  .calendar-confirm-card,
+  .calendar-day-best {
     opacity: 1;
     transform: none;
     filter: none;
@@ -228,4 +262,31 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes calendar-phone-float {
+  0%, 100% { transform: translateY(0); }
+  45%, 72% { transform: translateY(-8px); }
+}
+
+@keyframes calendar-reminder-pulse {
+  0%, 13% { opacity: 0; transform: translateY(-14px) scale(0.97); }
+  20%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+  25%, 31% { box-shadow: rgba(116, 69, 50, 0.2) 0 16px 48px, rgba(116, 69, 50, 0.18) 0 0 0 1px; }
+}
+
+@keyframes calendar-opens {
+  0%, 28% { opacity: 0; transform: translateY(20px) scale(0.96); }
+  38%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes calendar-confirm-appears {
+  0%, 58% { opacity: 0; transform: translateY(18px) scale(0.96); }
+  70%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes calendar-best-window-glow {
+  0%, 44% { box-shadow: rgba(72, 45, 31, 0.14) 0 0 0 1px; }
+  52%, 72% { box-shadow: rgba(200, 148, 103, 0.44) 0 16px 42px, rgba(255, 255, 255, 0.42) 0 0 0 1px inset; }
+  82%, 100% { box-shadow: rgba(72, 45, 31, 0.14) 0 0 0 1px; }
 }

@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   appRoles,
+  appointmentCalendarDemo,
   beforeAfterComparisons,
   compliancePoints,
   heroMetrics,
@@ -303,6 +304,132 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="terminkalender" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+        <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+          <div className="max-w-3xl">
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Terminkalender mit Recall-Fenster</p>
+            <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">
+              Ayda bekommt den Reminder — und sieht sofort, wann die beste Auffrischungszeit ist.
+            </h2>
+          </div>
+          <p className="max-w-md text-base leading-7 text-[#6f5a4d]">
+            Der Kalender markiert das medizinisch sinnvolle Zeitfenster farblich, lässt Patientinnen aber bewusst freie Auswahl: empfohlene Slots, alternative freie Termine und belegte Praxiszeiten sind klar getrennt.
+          </p>
+        </div>
+
+        <div className="grid items-stretch gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+          <Card className="overflow-hidden bg-[#3b261d] text-[#fbf7f0]">
+            <CardHeader className="border-b border-[#ead6c1]/12">
+              <p className="font-mono text-xs uppercase text-[#ead6c1]/72">GIF-Storyboard · Reminder → Termin buchen</p>
+              <CardTitle className="font-editorial text-4xl tracking-[-1.8px] text-white">Patientin {appointmentCalendarDemo.patientName}</CardTitle>
+              <CardDescription className="text-white/70">{appointmentCalendarDemo.reminderText}</CardDescription>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="calendar-gif-phone mx-auto max-w-sm rounded-[2.3rem] bg-[#f5f0e8] p-4 text-[#2a1b14] shadow-warm">
+                <div className="calendar-reminder-card rounded-[1.7rem] bg-[#fbf7f0] p-4 shadow-border">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#744532] text-[#ead6c1]">
+                      <BellRing className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold">Recall für {appointmentCalendarDemo.patientName}</p>
+                      <p className="text-xs leading-5 text-[#725746]">{reminderPushExample.message}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="calendar-open-card mt-4 rounded-[1.9rem] bg-[#ead8c4] p-4 shadow-border">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="font-mono text-xs font-semibold uppercase text-[#8a563d]">Terminkalender</p>
+                      <p className="font-editorial text-2xl font-medium tracking-[-0.9px]">{appointmentCalendarDemo.monthLabel}</p>
+                    </div>
+                    <CalendarCheck className="h-6 w-6 text-[#744532]" />
+                  </div>
+                  <div className="mt-4 grid grid-cols-3 gap-2">
+                    {appointmentCalendarDemo.days.slice(3, 9).map((day) => (
+                      <button
+                        aria-label={`${day.weekday}, ${day.date}. Juni: ${day.label}`}
+                        className={`calendar-day rounded-2xl p-3 text-left shadow-border transition ${
+                          day.state === "best"
+                            ? "calendar-day-best bg-[#c89467] text-white"
+                            : day.state === "busy"
+                              ? "bg-[#d8ccc1] text-[#725746] opacity-70"
+                              : day.state === "closed"
+                                ? "bg-[#fbf7f0]/48 text-[#725746] opacity-60"
+                                : "bg-[#fbf7f0] text-[#3b261d]"
+                        }`}
+                        key={`${day.weekday}-${day.date}`}
+                        type="button"
+                      >
+                        <span className="block text-xs font-semibold">{day.weekday}</span>
+                        <span className="block text-2xl font-bold tracking-[-0.8px]">{day.date}</span>
+                        <span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] opacity-80">{day.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="calendar-confirm-card mt-4 rounded-[1.7rem] bg-[#3b261d] p-4 text-[#ead6c1] shadow-warm">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#d8b28f]">Ayda wählt selbst</p>
+                  <p className="mt-2 font-semibold text-white">{appointmentCalendarDemo.selectedSlot}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#ead6c1]/78">Terminwunsch wird an die Praxis gesendet und kann bestätigt werden.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-[#fbf7f0]/90">
+            <CardHeader>
+              <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Farbcodierter Buchungskalender</p>
+              <CardTitle>{appointmentCalendarDemo.treatment}: empfohlen, frei oder belegt.</CardTitle>
+              <CardDescription>
+                Das System schlägt den besten Auffrischungszeitraum vor, blockiert Ayda aber nicht: Sie kann auch einen anderen freien Termin auswählen.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="flex flex-wrap gap-2">
+                {appointmentCalendarDemo.legend.map((item) => (
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#ead8c4]/60 px-3 py-2 text-xs font-semibold text-[#725746]" key={item.label}>
+                    <span className="h-3 w-3 rounded-full shadow-border" style={{ backgroundColor: item.color }} />
+                    {item.label}
+                  </span>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {appointmentCalendarDemo.days.map((day) => (
+                  <button
+                    aria-label={`${day.weekday}, ${day.date}. Juni: ${day.label}`}
+                    className={`rounded-2xl p-4 text-left shadow-border transition hover:-translate-y-0.5 ${
+                      day.state === "best"
+                        ? "bg-[#c89467] text-white shadow-warm"
+                        : day.state === "busy"
+                          ? "cursor-not-allowed bg-[#d8ccc1] text-[#725746] opacity-70"
+                          : day.state === "closed"
+                            ? "cursor-not-allowed bg-[#ead8c4]/48 text-[#725746] opacity-60"
+                            : "bg-[#f1e4d4] text-[#3b261d] hover:bg-[#ead8c4]"
+                    }`}
+                    disabled={day.state === "busy" || day.state === "closed"}
+                    key={`${day.weekday}-${day.date}`}
+                    type="button"
+                  >
+                    <span className="block text-xs font-semibold">{day.weekday}</span>
+                    <span className="block text-3xl font-bold tracking-[-1px]">{day.date}</span>
+                    <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] opacity-80">{day.label}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {appointmentCalendarDemo.suggestedSlots.map((slot) => (
+                  <button className="rounded-2xl bg-[#3b261d] p-4 text-left text-[#ead6c1] shadow-border transition hover:bg-[#744532]" key={slot.time} type="button">
+                    <span className="block font-editorial text-2xl font-medium text-white">{slot.time} Uhr</span>
+                    <span className="mt-2 block text-sm leading-6 text-[#ead6c1]/78">{slot.note}</span>
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

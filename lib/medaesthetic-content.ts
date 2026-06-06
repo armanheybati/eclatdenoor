@@ -151,6 +151,38 @@ export const reminderPushExample = {
   reactionLabel: "Patientin reagiert",
 } as const;
 
+
+export const appointmentCalendarDemo = {
+  patientName: "Ayda",
+  treatment: "Botox-Auffrischung",
+  monthLabel: "Juni 2026",
+  reminderText: "Ayda erhält den Recall und öffnet direkt den Terminkalender.",
+  legend: [
+    { label: "Beste Auffrischungszeit", color: "#c89467" },
+    { label: "Alternativ frei wählbar", color: "#ead8c4" },
+    { label: "Praxis belegt", color: "#d8ccc1" },
+  ],
+  days: [
+    { weekday: "Mo", date: "15", state: "free", label: "frei" },
+    { weekday: "Di", date: "16", state: "free", label: "frei" },
+    { weekday: "Mi", date: "17", state: "busy", label: "belegt" },
+    { weekday: "Do", date: "18", state: "best", label: "ideal" },
+    { weekday: "Fr", date: "19", state: "best", label: "ideal" },
+    { weekday: "Sa", date: "20", state: "best", label: "ideal" },
+    { weekday: "So", date: "21", state: "closed", label: "zu" },
+    { weekday: "Mo", date: "22", state: "best", label: "ideal" },
+    { weekday: "Di", date: "23", state: "best", label: "ideal" },
+    { weekday: "Mi", date: "24", state: "free", label: "frei" },
+    { weekday: "Do", date: "25", state: "free", label: "frei" },
+    { weekday: "Fr", date: "26", state: "busy", label: "belegt" },
+  ],
+  suggestedSlots: [
+    { time: "10:30", note: "Empfohlen · sanfte Auffrischung im idealen Fenster" },
+    { time: "14:00", note: "Auch möglich · Ayda kann selbst auswählen" },
+  ],
+  selectedSlot: "Do, 18. Juni · 10:30 Uhr",
+} as const;
+
 export const compliancePoints = [
   "EU-Hosting & AV-Verträge",
   "Mandantentrennung je Praxis",

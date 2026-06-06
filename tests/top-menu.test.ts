@@ -10,7 +10,7 @@ describe("topMenuItems", () => {
       "Fotodokumentation",
       "Reminder",
       "Allgemeine Hinweise zur Beachtung nach Therapie",
-      "Terminvereinbarung",
+      "Terminkalender",
       "Datenschutz-Grundverordnung (DSGVO)",
     ]);
   });

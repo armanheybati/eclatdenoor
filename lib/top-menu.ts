@@ -30,9 +30,9 @@ export const topMenuItems = [
     description: "Vorsichtsmaßnahmen nach Behandlung",
   },
   {
-    label: "Terminvereinbarung",
-    href: "#terminvereinbarung",
-    description: "Terminanfrage und Bestätigung",
+    label: "Terminkalender",
+    href: "#terminkalender",
+    description: "Farbige Auffrischungsfenster und freie Slot-Auswahl",
   },
   {
     label: "Datenschutz-Grundverordnung (DSGVO)",
