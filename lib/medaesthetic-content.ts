@@ -156,7 +156,7 @@ export const appointmentCalendarDemo = {
   patientName: "Ayda",
   treatment: "Botox-Auffrischung",
   monthLabel: "Juni 2026",
-  reminderText: "Ayda erhält den Recall und öffnet direkt den Terminkalender.",
+  reminderText: "Ayda erhält den Recall und öffnet direkt die Terminvereinbarung.",
   legend: [
     { label: "Beste Auffrischungszeit", color: "#c89467" },
     { label: "Alternativ frei wählbar", color: "#ead8c4" },

@@ -9,8 +9,8 @@ describe("topMenuItems", () => {
       "Aufklärungsbögen",
       "Fotodokumentation",
       "Reminder",
-      "Allgemeine Hinweise zur Beachtung nach Therapie",
-      "Terminkalender",
+      "Terminvereinbarung",
+      "Allgemeine Hinweise",
       "Datenschutz-Grundverordnung (DSGVO)",
     ]);
   });

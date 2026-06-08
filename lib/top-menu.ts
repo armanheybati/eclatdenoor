@@ -25,14 +25,14 @@ export const topMenuItems = [
     description: "Animierte Praxisnachricht mit Patientinnen-Reaktion",
   },
   {
-    label: "Allgemeine Hinweise zur Beachtung nach Therapie",
-    href: "#nachsorgehinweise",
-    description: "Vorsichtsmaßnahmen nach Behandlung",
+    label: "Terminvereinbarung",
+    href: "#terminvereinbarung",
+    description: "Farbige Auffrischungsfenster und freie Slot-Auswahl",
   },
   {
-    label: "Terminkalender",
-    href: "#terminkalender",
-    description: "Farbige Auffrischungsfenster und freie Slot-Auswahl",
+    label: "Allgemeine Hinweise",
+    href: "#allgemeine-hinweise",
+    description: "Vorsichtsmaßnahmen nach Behandlung",
   },
   {
     label: "Datenschutz-Grundverordnung (DSGVO)",

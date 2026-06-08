@@ -307,10 +307,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="terminkalender" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
+      <section id="terminvereinbarung" data-scroll-reveal="topic" className="scroll-reveal mx-auto max-w-7xl scroll-mt-24 px-6 py-16">
         <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
-            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Terminkalender mit Recall-Fenster</p>
+            <p className="font-mono text-xs font-medium uppercase text-[#8a563d]">Terminvereinbarung mit Recall-Fenster</p>
             <h2 className="font-editorial mt-3 text-4xl font-medium tracking-[-2.2px] sm:text-5xl">
               Ayda bekommt den Reminder — und sieht sofort, wann die beste Auffrischungszeit ist.
             </h2>
@@ -343,7 +343,7 @@ export default function Home() {
                 <div className="calendar-open-card mt-4 rounded-[1.9rem] bg-[#ead8c4] p-4 shadow-border">
                   <div className="flex items-center justify-between gap-3">
                     <div>
-                      <p className="font-mono text-xs font-semibold uppercase text-[#8a563d]">Terminkalender</p>
+                      <p className="font-mono text-xs font-semibold uppercase text-[#8a563d]">Terminvereinbarung</p>
                       <p className="font-editorial text-2xl font-medium tracking-[-0.9px]">{appointmentCalendarDemo.monthLabel}</p>
                     </div>
                     <CalendarCheck className="h-6 w-6 text-[#744532]" />
